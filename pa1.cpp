@@ -6,11 +6,15 @@ using namespace std;
 
 
 int main() {
-    int msSize = 0;
-    cout << "Enter the size of a magic square: ";
-    cin >> msSize;
+    int msSize = 1;
 
-    genMS(msSize);
+    while (msSize != 0) {
+        cout << "Enter the size of a magic square (enter zero to exit): ";
+        cin >> msSize;
+
+        if (msSize != 0)
+            genMS(msSize);
+    }
 
     return 0;
 }

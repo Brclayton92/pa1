@@ -7,10 +7,10 @@ using namespace std;
  */
 void printMs(int msArray[15][15], int _msSize) {
     int sum = 0;
-    //the following for loops print unique magic squares
+
     for(int i = 0; i < _msSize; i++) {
         for(int j = 0; j < _msSize; j++){
-            cout << msArray[i][j] << " ";
+            cout << msArray[i][j] << "\t";
         }
         cout << endl;
     }
@@ -53,16 +53,30 @@ void printMs(int msArray[15][15], int _msSize) {
         j--;
     }
     cout << sum;
+
+    cout << endl;
     sum = 0;
 }
 
+
 /*
- * Generates a magic array
+ * Generates and prints 10 magic squares
  */
 void genMS(int _msSize) {
     int m = (_msSize / 2);
     int n = (_msSize - 1);
     int msArray[15][15];
+    int msArray2[15][15];
+    int msArray3[15][15];
+    int msArray4[15][15];
+    //int msArray5[15][15];
+    //int msArray6[15][15];
+    //int msArray7[15][15];
+    //int msArray8[15][15];
+    //int msArray9[15][15];
+    //int msArray10[15][15];
+
+
 
 /*
     int **msArray = new int*[_msSize];
@@ -71,11 +85,14 @@ void genMS(int _msSize) {
     }
 */
 
+    //initializes all elements to 0
     for (int i = 0; i < _msSize; i++){
         for (int j = 0; j < _msSize; j++)
             msArray[i][j] = 0;
     }
 
+
+    // generates the first magic square
     for (int i = 0; i < (_msSize*_msSize); i++) {
         if (m == -1 && n == _msSize) {
             n = _msSize - 2;
@@ -98,7 +115,37 @@ void genMS(int _msSize) {
         n++;
     }
 
+    // prints the first magic square
     printMs(msArray, _msSize);
+
+    //turns the first magic square 90 degrees clockwise to create the second magic square
+    for (int i = 0; i < _msSize; i++){
+        for (int j = 0; j < _msSize; j++)
+            msArray2[i][j] = msArray[_msSize - j - 1][i];
+    }
+
+    //prints the second magic square
+    printMs(msArray2, _msSize);
+
+    //turns the second magic square 90 degrees clockwise to create the third magic square
+    for (int i = 0; i < _msSize; i++){
+        for (int j = 0; j < _msSize; j++)
+            msArray3[i][j] = msArray2[_msSize - j - 1][i];
+    }
+
+    //prints the third magic square
+    printMs(msArray3, _msSize);
+
+    //turns the third magic square 90 degrees clockwise to create the fourth magic square
+    for (int i = 0; i < _msSize; i++){
+        for (int j = 0; j < _msSize; j++)
+            msArray4[i][j] = msArray3[_msSize - j - 1][i];
+    }
+
+    //prints the fourth magic square
+    printMs(msArray4, _msSize);
+
+
 }
 
 #ifndef PA1_PA1_H
