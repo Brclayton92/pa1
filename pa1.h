@@ -68,28 +68,29 @@ void genMS(int _msSize) {
     int msArray2[15][15];
     int msArray3[15][15];
     int msArray4[15][15];
-    //int msArray5[15][15];
-    //int msArray6[15][15];
-    //int msArray7[15][15];
-    //int msArray8[15][15];
-    //int msArray9[15][15];
-    //int msArray10[15][15];
+    int msArray5[15][15];
+    int msArray6[15][15];
+    int msArray7[15][15];
+    int msArray8[15][15];
+    int msArray9[15][15];
+    int msArray10[15][15];
 
 
 
-/*
-    int **msArray = new int*[_msSize];
-    for (int i = 0; i < _msSize; i++) {
-        msArray[i] = new int[_msSize];
-    }
-*/
 
-    //initializes all elements to 0
-    for (int i = 0; i < _msSize; i++){
-        for (int j = 0; j < _msSize; j++)
+
+    //initializes all elements of magic square array1 to 0
+    for (int i = 0; i < sizeof(msArray[0][0]); i++){
+        for (int j = 0; j < sizeof(msArray[0][0]); j++)
             msArray[i][j] = 0;
     }
 
+    //initializes all elements of magic square array6 to 0
+    for (int i = 0; i < sizeof(msArray[0][0]); i++){
+        for (int j = 0; j < sizeof(msArray[0][0]); j++)
+            msArray6[i][j] = 0;
+    }
+/*
 
     // generates the first magic square
     for (int i = 0; i < (_msSize*_msSize); i++) {
@@ -144,7 +145,39 @@ void genMS(int _msSize) {
     //prints the fourth magic square
     printMs(msArray4, _msSize);
 
+    //generates magic square 5 by interchaning rows and columns of magic square 1
+    for (int i = 0; i < _msSize; i++){
+        for (int j = 0; j < _msSize; j++)
+            msArray5[i][j] = msArray[j][i];
+    }
 
+    //prints magic square 5
+    printMs(msArray5, _msSize);
+*/
+    //generates a fresh magic square for magic square 6
+    m = 0;
+    n = _msSize/2;
+    for (int i = 1; i <= _msSize*_msSize; i++) {
+        msArray6[m][n] = i;
+
+        m--;
+        n++;
+
+        if (m == -1)
+            m = _msSize - 1;
+
+        if (n == _msSize)
+            n = 0;
+
+        if (msArray6[m][n] != 0) {
+            n--;
+            m++;
+            m++;
+        }
+    }
+
+    //prints magic square array6
+    printMs(msArray6, _msSize);
 }
 
 #ifndef PA1_PA1_H
