@@ -3,7 +3,7 @@
 using namespace std;
 
 /*
- * prints a passed in magic array
+ * prints a passed in magic square array
  */
 void printMs(int msArray[15][15], int _msSize) {
     int sum = 0;
@@ -55,7 +55,6 @@ void printMs(int msArray[15][15], int _msSize) {
     cout << sum;
 
     cout << endl;
-    sum = 0;
 }
 
 
