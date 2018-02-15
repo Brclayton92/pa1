@@ -80,14 +80,14 @@ void genMS(int _msSize) {
 
 
     //initializes all elements of magic square array1 to 0
-    for (int i = 0; i < sizeof(msArray[0][0]); i++){
-        for (int j = 0; j < sizeof(msArray[0][0]); j++)
+    for (int i = 0; i < 15; i++){
+        for (int j = 0; j < 15; j++)
             msArray[i][j] = 0;
     }
 
     //initializes all elements of magic square array6 to 0
-    for (int i = 0; i < sizeof(msArray[0][0]); i++){
-        for (int j = 0; j < sizeof(msArray[0][0]); j++)
+    for (int i = 0; i < 15; i++){
+        for (int j = 0; j < 15; j++)
             msArray6[i][j] = 0;
     }
 /*
@@ -172,8 +172,15 @@ void genMS(int _msSize) {
         if (msArray6[m][n] != 0) {
             n--;
             m++;
+
+            if (m == _msSize)
+                m = 0;
+
             m++;
         }
+
+        if (n == -1)
+            n = _msSize - 1;
     }
 
     //prints magic square array6
