@@ -90,7 +90,7 @@ void genMS(int _msSize) {
         for (int j = 0; j < 15; j++)
             msArray6[i][j] = 0;
     }
-/*
+
 
     // generates the first magic square
     for (int i = 0; i < (_msSize*_msSize); i++) {
@@ -116,6 +116,7 @@ void genMS(int _msSize) {
     }
 
     // prints the first magic square
+    cout << endl << "Magic Square #1 is:" << endl << endl;
     printMs(msArray, _msSize);
 
     //turns the first magic square 90 degrees clockwise to create the second magic square
@@ -125,6 +126,7 @@ void genMS(int _msSize) {
     }
 
     //prints the second magic square
+    cout << endl << "Magic Square #2 is:" << endl << endl;
     printMs(msArray2, _msSize);
 
     //turns the second magic square 90 degrees clockwise to create the third magic square
@@ -134,6 +136,7 @@ void genMS(int _msSize) {
     }
 
     //prints the third magic square
+    cout << endl << "Magic Square #3 is:" << endl << endl;
     printMs(msArray3, _msSize);
 
     //turns the third magic square 90 degrees clockwise to create the fourth magic square
@@ -143,6 +146,7 @@ void genMS(int _msSize) {
     }
 
     //prints the fourth magic square
+    cout << endl << "Magic Square #4 is:" << endl << endl;
     printMs(msArray4, _msSize);
 
     //generates magic square 5 by interchaning rows and columns of magic square 1
@@ -152,8 +156,9 @@ void genMS(int _msSize) {
     }
 
     //prints magic square 5
+    cout << endl << "Magic Square #5 is:" << endl << endl;
     printMs(msArray5, _msSize);
-*/
+
     //generates a fresh magic square for magic square 6
     m = 0;
     n = _msSize/2;
@@ -184,7 +189,48 @@ void genMS(int _msSize) {
     }
 
     //prints magic square array6
+    cout << endl << "Magic Square #6 is:" << endl << endl;
     printMs(msArray6, _msSize);
+
+    //turns the sixth magic square 90 degrees clockwise to create the seventh magic square
+    for (int i = 0; i < _msSize; i++){
+        for (int j = 0; j < _msSize; j++)
+            msArray7[i][j] = msArray6[_msSize - j - 1][i];
+    }
+
+    //prints magic square array7
+    cout << endl << "Magic Square #7 is:" << endl << endl;
+    printMs(msArray7, _msSize);
+
+    //FIXME : magic square #5 and #8 are identical
+    //turns the seventh magic square 90 degrees clockwise to create the eighth magic square
+    for (int i = 0; i < _msSize; i++){
+        for (int j = 0; j < _msSize; j++)
+            msArray8[i][j] = msArray7[_msSize - j - 1][i];
+    }
+
+    //prints magic square array8
+    cout << endl << "Magic Square #8 is:" << endl << endl;
+    printMs(msArray8, _msSize);
+
+    //turns the eighth magic square degrees clockwise to create the ninth magic square
+    for (int i = 0; i < _msSize; i++){
+        for (int j = 0; j < _msSize; j++)
+            msArray9[i][j] = msArray8[_msSize - j - 1][i];
+    }
+
+    //prints magic square array9
+    cout << endl << "Magic Square #9 is:" << endl << endl;
+    printMs(msArray9, _msSize);
+
+    //generates magic square 10 by interchanging rows and columns of magic square 6
+    for (int i = 0; i < _msSize; i++){
+        for (int j = 0; j < _msSize; j++)
+            msArray10[i][j] = msArray6[j][i];
+    }
+
+    cout << endl << "Magic Square #10 is:" << endl << endl;
+    printMs(msArray10, _msSize);
 }
 
 #ifndef PA1_PA1_H
