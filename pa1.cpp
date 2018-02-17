@@ -90,6 +90,12 @@ void genMS(int _msSize) {
             msArray5[i][j] = 0;
     }
 
+    //initializes all elements of magic square array9 to 0
+    for (int i = 0; i < 15; i++){
+        for (int j = 0; j < 15; j++)
+            msArray9[i][j] = 0;
+    }
+
 
     // generates the first magic square using Siamese method
     for (int i = 0; i < (_msSize*_msSize); i++) {
@@ -253,7 +259,6 @@ void genMS(int _msSize) {
     //prints magic square array10
     cout << endl << "Magic Square #10 is:" << endl << endl;
     printMs(msArray10, _msSize);
-
 }
 
 int main() {
