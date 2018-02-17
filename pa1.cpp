@@ -3,7 +3,7 @@
 using namespace std;
 
 /*
- * prints a passed in magic square array are the sums of it's rows columns and diagonals
+ * prints a passed in magic square array and the sums of it's rows, columns, and diagonals
  */
 void printMs(int msArray[15][15], int _msSize) {
     int sum = 0;
@@ -73,10 +73,6 @@ void genMS(int _msSize) {
     int msArray8[15][15];
     int msArray9[15][15];
     int msArray10[15][15];
-
-
-
-
 
     //initializes all elements of magic square array1 to 0
     for (int i = 0; i < 15; i++){
