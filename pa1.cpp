@@ -1,10 +1,9 @@
 #include <iostream>
-#include <cmath>
 #include "pa1.h"
 using namespace std;
 
 /*
- * prints a passed in magic square array
+ * prints a passed in magic square array are the sums of it's rows columns and diagonals
  */
 void printMs(int msArray[15][15], int _msSize) {
     int sum = 0;
@@ -92,7 +91,7 @@ void genMS(int _msSize) {
     }
 
 
-    // generates the first magic square
+    // generates the first magic square using Siamese method
     for (int i = 0; i < (_msSize*_msSize); i++) {
         if (m == -1 && n == _msSize) {
             n = _msSize - 2;
@@ -149,7 +148,7 @@ void genMS(int _msSize) {
     cout << endl << "Magic Square #4 is:" << endl << endl;
     printMs(msArray4, _msSize);
 
-    //generates a fresh magic square for magic square 5
+    //generates a fresh magic square for magic square 5 using Siamese method
     m = 0;
     n = _msSize/2;
     for (int i = 1; i <= _msSize*_msSize; i++) {
@@ -211,6 +210,49 @@ void genMS(int _msSize) {
     //prints magic square array8
     cout << endl << "Magic Square #8 is:" << endl << endl;
     printMs(msArray8, _msSize);
+
+    m = _msSize / 2;
+    n = (_msSize /2) + 1;
+
+    // generates a fresh magic square to be stored in msarray9 using Bachet de Mézeriac method
+    for (int i = 1; i <= _msSize*_msSize ; i++){
+        msArray9[m][n] = i;
+
+        m--;
+        n++;
+
+        if (m == -1)
+            m = _msSize - 1;
+
+        if (n == _msSize)
+            n = 0;
+
+        if (msArray9[m][n] != 0){
+            m++;
+            n++;
+
+            if (m == _msSize)
+                m = 0;
+
+            if (n == _msSize)
+                n = 0;
+        }
+    }
+
+    //prints magic square array9
+    cout << endl << "Magic Square #9 is:" << endl << endl;
+    printMs(msArray9, _msSize);
+
+    //interchanges rows and columns of magic square 9 to form magic square 10
+    for (int i = 0; i < _msSize; i++){
+        for (int j = 0; j < _msSize; j++){
+            msArray10[j][i] = msArray9[i][j];
+        }
+    }
+
+    //prints magic square array10
+    cout << endl << "Magic Square #10 is:" << endl << endl;
+    printMs(msArray10, _msSize);
 
 }
 
