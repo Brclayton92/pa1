@@ -276,8 +276,11 @@ int main() {
 
 
         // if statement ensures user input is in proper range
-        if (msSize > -1 && msSize < 16)
+        if (msSize > 0 && msSize < 16)
             genMS(msSize);
+
+        else if (msSize == 0)
+            break;
 
         else
             cout << "Improper input, please enter an odd integer between 0 and 15." << endl << endl;
