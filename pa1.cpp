@@ -1,6 +1,6 @@
 #include <iostream>
 #include "pa1.h"
-#include <limits>;
+#include <limits>
 using namespace std;
 
 /*
@@ -270,7 +270,7 @@ int main() {
             cin.clear();
             std::cin.ignore(std::numeric_limits<streamsize>::max(),'\n');
 
-            // setting msSize to -1 triggers input validation else statement on next line,
+            // setting msSize to -1 triggers input validation message on next line,
             msSize = -1;
         }
 
