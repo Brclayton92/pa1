@@ -1,5 +1,6 @@
 #include <iostream>
 #include "pa1.h"
+#include <limits>;
 using namespace std;
 
 /*
@@ -216,7 +217,7 @@ void genMS(int _msSize) {
     m = _msSize / 2;
     n = (_msSize /2) + 1;
 
-    // generates a fresh magic square to be stored in msarray9 using Bachet de Mézeriac method
+    // generates a fresh magic square to be stored in msArray9 using Bachet de Mézeriac method
     for (int i = 1; i <= _msSize*_msSize ; i++){
         msArray9[m][n] = i;
 
@@ -264,8 +265,22 @@ int main() {
         cout << "Enter the size of a magic square (enter zero to exit): ";
         cin >> msSize;
 
-        if (msSize != 0)
+        // if statement ensures user input is of proper type
+        if (cin.fail()) {
+            cin.clear();
+            std::cin.ignore(std::numeric_limits<streamsize>::max(),'\n');
+
+            // setting msSize to -1 triggers input validation else statement on next line,
+            msSize = -1;
+        }
+
+
+        // if statement ensures user input is in proper range
+        if (msSize > -1 && msSize < 16)
             genMS(msSize);
+
+        else
+            cout << "Improper input, please enter an odd integer between 0 and 15." << endl << endl;
     }
 
     return 0;
